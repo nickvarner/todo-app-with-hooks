@@ -12,8 +12,8 @@ export default function TodoForm(props) {
                 props.addTodo(value);
                 rest();
             }} >
-            <Paper>
-                <TextField onChange={handleChange} value={value}/>
+            <Paper style={{ margin: "1rem 0", padding: "0 1rem" }}>
+                <TextField onChange={handleChange} value={value} margin="normal" label="add new todo" fullWidth />
             </Paper>
             </form>
         </div>
