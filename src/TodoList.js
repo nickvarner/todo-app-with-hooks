@@ -8,14 +8,16 @@ import Divider from '@material-ui/core/Divider'
 export default function TodoList(props) {
     return (
         <Paper>
-            {props.todos.map(todo =>(
-                <>
-                    <ListItem>
-                        <ListItemText>{todo.task}</ListItemText>
-                    </ListItem>
-                    <Divider/>
-                </>
-            ))}
+            <List>
+                {props.todos.map(todo =>(
+                    <>
+                        <ListItem>
+                            <ListItemText>{todo.task}</ListItemText>
+                        </ListItem>
+                        <Divider/>
+                    </>
+                ))}
+            </List>
         </Paper>
     )
 }
