@@ -1,0 +1,10 @@
+.Paper {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background-color: #fafafa;
+}
+
+.AppBar {
+    height: 64px;
+}
