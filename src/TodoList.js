@@ -13,11 +13,9 @@ export default function TodoList(props) {
                 {todos.map((todo, i) =>(
                     <>
                         <Todo 
-                            task={todo.task}
+                            {...todo}
                             key={todo.id}
-                            completed={todo.completed}
                             removeTodo={removeTodo}
-                            id={todo.id}
                             toggleTodo={toggleTodo}
                             editTodo={editTodo} 
                         />

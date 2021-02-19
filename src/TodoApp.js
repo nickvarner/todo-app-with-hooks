@@ -12,9 +12,6 @@ import TodoForm from './TodoForm'
 export default function TodoApp() {
     const initialTodos = JSON.parse(window.localStorage.getItem('todos') || '[]');
     const {todos, addTodo, removeTodo, toggleTodo, editTodo} = useTodoState(initialTodos);
-    React.useEffect(() => {
-        window.localStorage.setItem("todos", JSON.stringify(todos))
-    }, [todos])
 
     return (
         <Paper className="Paper" elevation={0}>
