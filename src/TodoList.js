@@ -6,6 +6,7 @@ import Todo from './Todo'
 
 export default function TodoList(props) {
     const {todos, removeTodo, toggleTodo, editTodo} = props;
+    if (todos.length)
     return (
         <Paper>
             <List>
@@ -25,5 +26,6 @@ export default function TodoList(props) {
                 ))}
             </List>
         </Paper>
-    )
+    );
+    return null;
 }
