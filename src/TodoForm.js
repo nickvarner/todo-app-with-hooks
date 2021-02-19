@@ -4,13 +4,13 @@ import TextField from '@material-ui/core/TextField'
 import useInputState from "./Hooks/useInputState"
 
 export default function TodoForm(props) {
-    const [value, handleChange, rest] = useInputState("");
+    const [value, handleChange, reset] = useInputState("");
     return (
         <div>
             <form onSubmit={e => {
                 e.preventDefault();
                 props.addTodo(value);
-                rest();
+                reset();
             }} >
             <Paper style={{ margin: "1rem 0", padding: "0 1rem" }}>
                 <TextField onChange={handleChange} value={value} margin="normal" label="add new todo" fullWidth />
