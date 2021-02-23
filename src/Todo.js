@@ -9,10 +9,10 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import "./Styles/TodoStyles.css"
 import useToggleState from './Hooks/useToggleState'
 import EditTodoForm from './EditTodoForm'
-import {TodosContext} from './context/todos.context'
+import {DispatchContext} from './context/todos.context'
 
 export default function Todo({ task, completed, id }) {
-    const {dispatch} = React.useContext(TodosContext)
+    const dispatch = React.useContext(DispatchContext)
     const [isEditing, toggle] = useToggleState(false)
     return (
         <ListItem className="todo-ListItem">

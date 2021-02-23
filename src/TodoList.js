@@ -6,7 +6,7 @@ import Todo from './Todo'
 import {TodosContext} from './context/todos.context'
 
 export default function TodoList() {
-    const {todos} = React.useContext(TodosContext)
+    const todos = React.useContext(TodosContext)
     if (todos.length)
     return (
         <Paper>
