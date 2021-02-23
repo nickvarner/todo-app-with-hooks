@@ -4,15 +4,16 @@ import useInputState from "./Hooks/useInputState"
 import "./Styles/EditTodoFormStyles.css"
 import {TodosContext} from './context/todos.context'
 
-export default function EditTodoForm(props) {
-    const {editTodo} = React.useContext(TodosContext);
-    const [value, handleChange, reset] = useInputState(props.task);
+export default function EditTodoForm({id, task, toggleEdit}) {
+    const {dispatch} = React.useContext(TodosContext);
+    const [value, handleChange, reset] = useInputState(task);
+    console.log("edit todoform render")
     return (
             <form onSubmit={(e) => {
                 e.preventDefault();
-                editTodo(props.id, value);
+                dispatch({type: "EDIT", id: id, newTask: value});
                 reset();
-                props.toggleEdit()
+                toggleEdit()
             }} className="editTodo-form">
                 <TextField margin="normal" value={value} onChange={handleChange} fullWidth autoFocus/>
             </form>

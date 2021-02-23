@@ -6,12 +6,13 @@ import {TodosContext} from './context/todos.context'
 
 export default function TodoForm(props) {
     const [value, handleChange, reset] = useInputState("");
-    const {addTodo} = React.useContext(TodosContext)
+    const {dispatch} = React.useContext(TodosContext)
+    console.log("todoform render")
     return (
         <div>
             <form onSubmit={e => {
                 e.preventDefault();
-                addTodo(value);
+                dispatch({type: "ADD", task: value});
                 reset();
             }} >
             <Paper style={{ margin: "1rem 0", padding: "0 1rem" }}>

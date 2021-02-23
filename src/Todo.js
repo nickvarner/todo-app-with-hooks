@@ -12,21 +12,19 @@ import EditTodoForm from './EditTodoForm'
 import {TodosContext} from './context/todos.context'
 
 export default function Todo({ task, completed, id }) {
-    const {removeTodo, toggleTodo} = React.useContext(TodosContext)
+    const {dispatch} = React.useContext(TodosContext)
     const [isEditing, toggle] = useToggleState(false)
     return (
-        
         <ListItem className="todo-ListItem">
             {isEditing ? <EditTodoForm id={id} task={task} toggleEdit={toggle} /> : 
                 <>
-                    <Checkbox checked={completed} tabIndex={-1} onClick={() => toggleTodo(id)} />
+                    <Checkbox checked={completed} tabIndex={-1} onClick={() => dispatch({type: "TOGGLE", id})} />
                     <ListItemText style={{ textDecoration: completed ? "line-through" : "none"}}>
                         {task}
                     </ListItemText>
-                    <ListItemSecondaryAction><IconButton aria-label="delete" onClick={() => removeTodo(id)}><DeleteIcon/></IconButton><IconButton aria-label="edit" onClick={toggle}><EditIcon/></IconButton></ListItemSecondaryAction>
+                    <ListItemSecondaryAction><IconButton aria-label="delete" onClick={() => dispatch({type: "REMOVE", id})}><DeleteIcon/></IconButton><IconButton aria-label="edit" onClick={toggle}><EditIcon/></IconButton></ListItemSecondaryAction>
                 </>
         }
         </ListItem>
-        
     )
 }
