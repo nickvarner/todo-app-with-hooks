@@ -12,7 +12,7 @@ export default function TodoList() {
         <Paper>
             <List>
                 {todos.map((todo, i) =>(
-                    <React.Fragment >
+                    <React.Fragment key={i}>
                         <Todo 
                             {...todo}
                             key={todo.id}

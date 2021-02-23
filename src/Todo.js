@@ -11,7 +11,8 @@ import useToggleState from './Hooks/useToggleState'
 import EditTodoForm from './EditTodoForm'
 import {DispatchContext} from './context/todos.context'
 
-export default function Todo({ task, completed, id }) {
+//for a function based component youll use react memo to avoid rerendering when nothing changes like purecomponent for class based
+const Todo = ({ task, completed, id }) => {
     const dispatch = React.useContext(DispatchContext)
     const [isEditing, toggle] = useToggleState(false)
     return (
@@ -28,3 +29,6 @@ export default function Todo({ task, completed, id }) {
         </ListItem>
     )
 }
+//to avoid rerendering when nothing you can use react.purecomponent for a class based component
+
+export default React.memo(Todo)
