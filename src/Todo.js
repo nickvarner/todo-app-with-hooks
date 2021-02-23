@@ -9,13 +9,15 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import "./Styles/TodoStyles.css"
 import useToggleState from './Hooks/useToggleState'
 import EditTodoForm from './EditTodoForm'
+import {TodosContext} from './context/todos.context'
 
-export default function Todo({ task, completed, removeTodo, id, toggleTodo, editTodo }) {
+export default function Todo({ task, completed, id }) {
+    const {removeTodo, toggleTodo} = React.useContext(TodosContext)
     const [isEditing, toggle] = useToggleState(false)
     return (
         
         <ListItem className="todo-ListItem">
-            {isEditing ? <EditTodoForm editTodo={editTodo} id={id} task={task} toggleEdit={toggle} /> : 
+            {isEditing ? <EditTodoForm id={id} task={task} toggleEdit={toggle} /> : 
                 <>
                     <Checkbox checked={completed} tabIndex={-1} onClick={() => toggleTodo(id)} />
                     <ListItemText style={{ textDecoration: completed ? "line-through" : "none"}}>
